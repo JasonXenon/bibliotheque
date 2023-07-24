@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('auteurs', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('')->nullable();
-            $table->string('email')->default('')->nullable();
+            $table->string('name')->default('')->unique();
+            $table->string('email')->default('')->unique();
             $table->date('date_naiss');
             $table->string('nationalite');
             $table->timestamps();
