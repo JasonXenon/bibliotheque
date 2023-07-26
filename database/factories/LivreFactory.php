@@ -22,6 +22,11 @@ class LivreFactory extends Factory
 
         return [
             'title'=>fake()->title(),
+            'img_path' => function () {
+                $absolutePath = fake()->image(storage_path('app/public/images'), 640, 480, 'cats', true);
+
+                return str_replace(storage_path('app/public/'), '', $absolutePath);
+            },
             'ISBN'=>fake()->isbn13(),
             'dateParution'=>fake()->dateTimeBetween('-2 years, -30 days'),
             'genre' => $genres[array_rand($genres)],
